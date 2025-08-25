@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotel SDLC - Landing Page Minimalista</title>
+  <title>Hotel SDLC & STLC - Landing Page Minimalista</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * { margin:0; padding:0; box-sizing: border-box; }
     body {
       font-family: "Poppins", sans-serif;
-      color: #2e4d3b; /* verde natural */
+      color: #2e4d3b;
       background-color: #fff;
       scroll-behavior: smooth;
     }
@@ -88,82 +88,43 @@
 
     .phase-card {
       width: 90%;
-      max-width: 800px;
-      height: 80vh;
+      max-width: 900px;
       background: #fff;
       border: 2px solid #2e4d3b;
       border-radius: 15px;
       margin: 40px 0;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
+      text-align: left;
       padding: 30px;
+      min-height: 65vh;
     }
     .phase-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(46,77,59,0.3);
     }
-    .phase-card h3 {
-      font-size: 2rem;
+
+    .phase-content {
+      flex: 1;
+      margin: 0 10px;
+    }
+    .phase-content h3 {
+      font-size: 1.8rem;
       margin-bottom: 15px;
     }
-    .phase-card p {
-      font-size: 1.1rem;
+    .phase-content p {
+      font-size: 1rem;
       color: #555;
-      max-width: 600px;
       margin-bottom: 10px;
+      line-height: 1.5;
     }
-    .sub-text {
-      font-size: 0.95rem;
+    .phase-content span {
+      font-size: 0.9rem;
       color: #888;
-      max-width: 500px;
+      display: block;
       margin-top: 5px;
-    }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      display:none;
-      justify-content:center;
-      align-items:center;
-      background: rgba(0,0,0,0.3);
-      z-index: 200;
-    }
-    .modal-content {
-      background:#fff;
-      padding:25px;
-      border-radius:15px;
-      max-width:600px;
-      text-align:center;
-      border:2px solid #2e4d3b;
-      box-shadow: 0 8px 30px rgba(46,77,59,0.2);
-      animation: fadeIn 0.4s ease;
-      color:#2e4d3b;
-    }
-    .modal-content h2 { margin-bottom:15px; }
-    .modal-content p { margin-bottom:15px; line-height:1.5; color:#555; }
-    .close-btn {
-      background:#2e4d3b;
-      color:#fff;
-      padding:8px 18px;
-      border-radius:8px;
-      cursor:pointer;
-      transition:0.3s;
-      border:none;
-    }
-    .close-btn:hover { background:#1f3224; }
-
-    @keyframes fadeIn {
-      from {opacity:0; transform: scale(0.95);}
-      to {opacity:1; transform: scale(1);}
     }
 
     /* Footer */
@@ -176,9 +137,13 @@
     }
 
     @media(max-width: 900px){
-      .phase-card { height: 60vh; }
+      .phase-card { 
+        flex-direction: column; 
+        min-height: auto;
+        padding: 20px;
+      }
+      .phase-content { margin: 10px 0; }
     }
-
   </style>
 </head>
 <body>
@@ -201,86 +166,108 @@
   </section>
 
   <section class="sdlc-section">
-    <div class="phase-card" id="phase1" data-phase="1">
-      <h3>Planificación</h3>
-      <p>🗂 Definición de alcance, recursos y cronograma del sistema de reservas.</p>
-      <span class="sub-text">Estableciendo la base sólida para todo el proyecto</span>
+    <!-- Planificación -->
+    <div class="phase-card" id="phase1">
+      <div class="phase-content">
+        <h3>SDLC 🗂 Planificación</h3>
+        <p>Definición clara del alcance, presupuesto, recursos necesarios y cronograma del proyecto. Se establecen objetivos medibles y se determinan los riesgos potenciales para prevenir problemas futuros.</p>
+        <span>Base sólida para un desarrollo ordenado y eficiente.</span>
+      </div>
+      <div class="phase-content">
+        <h3>STLC 📝 Planificación de pruebas</h3>
+        <p>Diseño de la estrategia general de pruebas, identificación de herramientas y técnicas a usar. Se planea cómo verificar que todos los requisitos cumplan con las expectativas del cliente.</p>
+        <span>Preparando las pruebas desde el inicio del proyecto.</span>
+      </div>
     </div>
-    <div class="phase-card" id="phase2" data-phase="2">
-      <h3>Análisis</h3>
-      <p>🔍 Recopilación de requisitos: reservas online, disponibilidad de habitaciones.</p>
-      <span class="sub-text">Conociendo las necesidades de los usuarios y el hotel</span>
+
+    <!-- Análisis -->
+    <div class="phase-card" id="phase2">
+      <div class="phase-content">
+        <h3>SDLC 🔍 Análisis</h3>
+        <p>Recopilación y documentación de todos los requisitos funcionales y no funcionales. Se priorizan las funcionalidades críticas y se determina cómo deben comportarse las reservas, pagos y disponibilidad de habitaciones.</p>
+        <span>Conociendo las necesidades del hotel y sus usuarios.</span>
+      </div>
+      <div class="phase-content">
+        <h3>STLC 📝 Planificación de pruebas detallada</h3>
+        <p>Definición de casos de prueba iniciales para cada requisito identificado. Esto permite detectar problemas antes de entrar a desarrollo y establecer métricas de calidad.</p>
+        <span>Preparando escenarios de prueba efectivos.</span>
+      </div>
     </div>
-    <div class="phase-card" id="phase3" data-phase="3">
-      <h3>Diseño</h3>
-      <p>📐 Arquitectura del sistema, interfaz de usuario y base de datos.</p>
-      <span class="sub-text">Visualizando cómo funcionará todo antes de construirlo</span>
+
+    <!-- Diseño -->
+    <div class="phase-card" id="phase3">
+      <div class="phase-content">
+        <h3>SDLC 📐 Diseño</h3>
+        <p>Creación de diagramas de arquitectura, bases de datos, interfaces y flujos de usuarios. Se asegura que todos los módulos funcionen de manera integrada y que la experiencia del usuario sea óptima.</p>
+        <span>Visualizando la estructura completa antes de construir.</span>
+      </div>
+      <div class="phase-content">
+        <h3>STLC 📝 Diseño de pruebas</h3>
+        <p>Desarrollo de casos de prueba detallados, definición de criterios de éxito y validación de escenarios. Se preparan scripts y datos de prueba que simulan situaciones reales del sistema.</p>
+        <span>Asegurando que cada función pueda ser evaluada correctamente.</span>
+      </div>
     </div>
-    <div class="phase-card" id="phase4" data-phase="4">
-      <h3>Desarrollo</h3>
-      <p>💻 Codificación de módulos: reservas, pagos y gestión de clientes.</p>
-      <span class="sub-text">Construyendo el sistema de forma ordenada y eficiente</span>
+
+    <!-- Desarrollo -->
+    <div class="phase-card" id="phase4">
+      <div class="phase-content">
+        <h3>SDLC 💻 Desarrollo</h3>
+        <p>Codificación de los módulos: reservas, pagos, gestión de clientes y reportes. Se siguen buenas prácticas de programación, control de versiones y revisión de código para garantizar calidad.</p>
+        <span>Construcción del sistema de manera ordenada y escalable.</span>
+      </div>
+      <div class="phase-content">
+        <h3>STLC 📝 Preparación de pruebas</h3>
+        <p>Creación de entornos de prueba, bases de datos dummy y configuración de herramientas. Se aseguran condiciones idénticas a producción para simular casos reales.</p>
+        <span>Todo listo para ejecutar pruebas efectivas.</span>
+      </div>
     </div>
-    <div class="phase-card" id="phase5" data-phase="5">
-      <h3>Pruebas</h3>
-      <p>✅ Verificación de funcionalidades y reporte de errores.</p>
-      <span class="sub-text">Asegurando que todo funcione correctamente</span>
+
+    <!-- Pruebas -->
+    <div class="phase-card" id="phase5">
+      <div class="phase-content">
+        <h3>SDLC ✅ Pruebas</h3>
+        <p>Verificación de funcionalidades implementadas, pruebas unitarias, integración y aceptación. Se corrigen errores y se valida que todas las funciones cumplan los requisitos definidos.</p>
+        <span>Asegurando la calidad y confiabilidad del sistema.</span>
+      </div>
+      <div class="phase-content">
+        <h3>STLC 📝 Ejecución de pruebas</h3>
+        <p>Ejecución de todos los casos de prueba, registro de defectos y análisis de resultados. Se realiza regresión para validar que las correcciones no afecten otras funcionalidades.</p>
+        <span>Validando cada módulo y flujo crítico del sistema.</span>
+      </div>
     </div>
-    <div class="phase-card" id="phase6" data-phase="6">
-      <h3>Implementación</h3>
-      <p>🚀 Despliegue en producción y capacitación del personal.</p>
-      <span class="sub-text">Llevando el sistema a la vida real con éxito</span>
+
+    <!-- Implementación -->
+    <div class="phase-card" id="phase6">
+      <div class="phase-content">
+        <h3>SDLC 🚀 Implementación</h3>
+        <p>Despliegue del sistema en producción, migración de datos y capacitación del personal. Se monitoriza el sistema inicial para asegurar que funcione correctamente en el entorno real.</p>
+        <span>Llevando el sistema a la vida real con éxito.</span>
+      </div>
+      <div class="phase-content">
+        <h3>STLC 📝 Pruebas de aceptación</h3>
+        <p>Validación final en producción para asegurar que los usuarios puedan operar sin inconvenientes. Se ajustan detalles finales y se confirman requisitos completos.</p>
+        <span>Asegurando satisfacción del cliente y calidad final.</span>
+      </div>
     </div>
-    <div class="phase-card" id="phase7" data-phase="7">
-      <h3>Mantenimiento</h3>
-      <p>🛠 Soporte, actualización de funcionalidades y corrección de errores.</p>
-      <span class="sub-text">Manteniendo el sistema actualizado y estable</span>
+
+    <!-- Mantenimiento -->
+    <div class="phase-card" id="phase7">
+      <div class="phase-content">
+        <h3>SDLC 🛠 Mantenimiento</h3>
+        <p>Soporte continuo, actualización de funcionalidades y corrección de errores. Se documentan cambios y se implementan mejoras basadas en feedback de usuarios.</p>
+        <span>Manteniendo el sistema estable y eficiente a largo plazo.</span>
+      </div>
+      <div class="phase-content">
+        <h3>STLC 📝 Pruebas de regresión</h3>
+        <p>Realización de pruebas periódicas tras actualizaciones, corrección de errores y mejoras. Garantiza que el sistema siga cumpliendo los estándares de calidad.</p>
+        <span>Asegurando continuidad y confiabilidad del sistema.</span>
+      </div>
     </div>
   </section>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <h2 id="modal-title"></h2>
-      <p id="modal-desc"></p>
-      <p id="modal-stlc"></p>
-      <button class="close-btn" onclick="closeModal()">Cerrar</button>
-    </div>
-  </div>
 
   <footer>
     &copy; 2025 Hotel SDLC & STLC - Sistema de Reservas
   </footer>
-
-  <script>
-    const data = {
-      1: {title:"Planificación", desc:"Definición de alcance, recursos y cronograma del sistema de reservas.", stlc:"Planificación de la estrategia general de pruebas."},
-      2: {title:"Análisis", desc:"Recopilación de requisitos: reservas online, disponibilidad de habitaciones.", stlc:"Planificación de pruebas para cada requisito."},
-      3: {title:"Diseño", desc:"Arquitectura del sistema, interfaz de usuario y base de datos.", stlc:"Diseño de casos de prueba."},
-      4: {title:"Desarrollo", desc:"Codificación de módulos: reservas, pagos y gestión de clientes.", stlc:"Preparación de datos y entornos de prueba."},
-      5: {title:"Pruebas", desc:"Verificación de funcionalidades y reporte de errores.", stlc:"Ejecución de pruebas y regresión."},
-      6: {title:"Implementación", desc:"Despliegue en producción y capacitación del personal.", stlc:"Pruebas de aceptación en producción."},
-      7: {title:"Mantenimiento", desc:"Soporte, actualización de funcionalidades y corrección de errores.", stlc:"Pruebas de regresión tras cambios."}
-    };
-
-    const cards = document.querySelectorAll(".phase-card");
-    const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modal-title");
-    const modalDesc = document.getElementById("modal-desc");
-    const modalStlc = document.getElementById("modal-stlc");
-
-    cards.forEach(card => {
-      card.addEventListener("click", ()=> {
-        const phase = card.dataset.phase;
-        modalTitle.textContent = data[phase].title;
-        modalDesc.textContent = data[phase].desc;
-        modalStlc.textContent = "Relación con STLC: " + data[phase].stlc;
-        modal.style.display = "flex";
-      });
-    });
-
-    function closeModal() { modal.style.display = "none"; }
-    window.onclick = function(e) { if(e.target==modal){ modal.style.display="none"; } }
-  </script>
 
 </body>
 </html>
