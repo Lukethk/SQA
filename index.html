@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hotel SDLC & STLC - Landing Page Extenso</title>
+<title>Hotel SDLC & STLC - Landing Page</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+  html { scroll-behavior: smooth; }
   body { font-family: "Poppins", sans-serif; color:#2e4d3b; background:#fff; }
 
   nav {
@@ -18,18 +18,26 @@
   nav a { color:#2e4d3b; text-decoration:none; font-weight:500; padding:8px 15px; border-radius:8px; transition:0.3s; }
   nav a:hover { background:#2e4d3b; color:#fff; }
 
+  /* Hero */
   .hero {
-    height:100vh;
-    background: url("https://passporterapp.com/es/blog/wp-content/uploads/2023/07/santa-cruz-de-la-sierra-bolivia.jpg") no-repeat center center/cover;
-    display:flex; justify-content:center; align-items:center; text-align:center; position:relative;
+    min-height:60vh; display:flex; justify-content:center; align-items:center;
+    text-align:center; background:url("https://passporterapp.com/es/blog/wp-content/uploads/2023/07/santa-cruz-de-la-sierra-bolivia.jpg") no-repeat center/cover;
+    position:relative;
   }
   .hero::after { content:""; position:absolute; inset:0; background:rgba(255,255,255,0.6); }
-  .hero-content { position:relative; z-index:1; max-width:800px; }
-  .hero-content h1 { font-family:"Playfair Display", serif; font-size:3rem; margin-bottom:20px; }
+  .hero-content { position:relative; z-index:1; max-width:800px; padding:20px; }
+  .hero-content h1 { font-family:"Playfair Display", serif; font-size:3rem; margin-bottom:15px; }
   .hero-content p { font-size:1.2rem; line-height:1.6; }
 
-  .phase-section { min-height:100vh; display:flex; justify-content:center; align-items:center; scroll-snap-align:start; padding:20px; background:#f9f9f9; }
-  .phase-card { width:90%; max-width:900px; background:#fff; border:2px solid #2e4d3b; border-radius:15px; display:flex; flex-direction:column; justify-content:flex-start; padding:30px; gap:15px; }
+  /* Section title */
+  .section-title {
+    text-align:center; padding:50px 20px 20px 20px; font-size:2rem;
+    font-family:"Playfair Display", serif; color:#2e4d3b;
+  }
+
+  /* Phases */
+  .phase-section { min-height:100vh; display:flex; justify-content:center; align-items:flex-start; scroll-snap-align:start; padding:40px 20px; background:#f9f9f9; }
+  .phase-card { width:90%; max-width:900px; background:#fff; border:2px solid #2e4d3b; border-radius:15px; display:flex; flex-direction:column; padding:30px; gap:20px; box-shadow:0 4px 15px rgba(46,77,59,0.1); }
   .phase-card h3 { font-size:2rem; margin-bottom:15px; }
   .role-block { border-top:1px solid #2e4d3b; padding-top:15px; margin-top:15px; }
   .role-block h4 { font-size:1.4rem; margin-bottom:8px; color:#1f3224; }
@@ -59,180 +67,140 @@
 <section class="hero">
   <div class="hero-content">
     <h1>Hotel SDLC & STLC</h1>
-    <p>Explora cómo se relacionan las fases de desarrollo (SDLC) y pruebas (STLC) en un sistema de reservas de hotel moderno. Cada fase abarca roles del cliente, administrador y empleados, mientras que STLC asegura que todo funcione correctamente antes, durante y después del despliegue.</p>
+    <p>Explora cómo se relacionan las fases de desarrollo (SDLC) y pruebas (STLC) en un sistema de reservas de hotel. Cada fase abarca roles del cliente, administrador y empleados, mientras que STLC asegura que todo funcione correctamente antes, durante y después del despliegue.</p>
   </div>
 </section>
 
-<!-- Planificación -->
+<div class="section-title">Fases del SDLC y STLC - Sistema de Reservas</div>
+
+<!-- Fases: Planificación a Mantenimiento -->
 <section class="phase-section" id="phase1">
   <div class="phase-card">
     <h3>Planificación</h3>
     <div class="role-block">
       <h4>SDLC - Cliente</h4>
-      <p>El cliente define sus expectativas: facilidad de reserva, disponibilidad inmediata de habitaciones, confirmaciones rápidas y seguridad en pagos.</p>
-      <span>Objetivo: establecer la experiencia inicial del usuario.</span>
+      <p>Define expectativas: reservas rápidas, disponibilidad de habitaciones, confirmaciones y seguridad de pagos.</p>
+      <span>Base para la experiencia del usuario.</span>
     </div>
     <div class="role-block">
       <h4>SDLC - Administrador</h4>
-      <p>El administrador establece los objetivos del sistema: tipos de habitaciones, tarifas, promociones, política de cancelaciones y cronograma de implementación.</p>
-      <span>Objetivo: asegurar que el sistema cumpla los objetivos de negocio.</span>
+      <p>Define objetivos: tipos de habitaciones, tarifas, promociones y política de cancelaciones.</p>
     </div>
     <div class="role-block">
       <h4>SDLC - Empleados</h4>
-      <p>Se planifica la organización interna: roles de check-in, atención a clientes, limpieza y soporte. Esto permite anticipar necesidades de software y entrenamiento.</p>
-      <span>Objetivo: preparar al equipo para una operación eficiente.</span>
+      <p>Planifica organización interna: roles de check-in, atención, limpieza y soporte.</p>
     </div>
     <div class="role-block">
       <h4>STLC</h4>
-      <p>Durante la planificación de pruebas, se definen qué escenarios deben validarse: reserva de habitaciones, pagos, notificaciones, cancelaciones y reportes administrativos.</p>
-      <span>Objetivo: asegurar que todos los flujos críticos se puedan probar correctamente.</span>
+      <p>Se definen escenarios de prueba: reservas, pagos, cancelaciones y reportes administrativos.</p>
     </div>
   </div>
 </section>
 
-<!-- Análisis -->
 <section class="phase-section" id="phase2">
   <div class="phase-card">
     <h3>Análisis</h3>
     <div class="role-block">
       <h4>SDLC - Cliente</h4>
-      <p>Se analizan los requerimientos del cliente: reservas en tiempo real, disponibilidad exacta, método de pago seguro y confirmación inmediata.</p>
-      <span>Objetivo: entender completamente las necesidades del usuario final.</span>
+      <p>Se analizan requerimientos de usuario: interfaz amigable, disponibilidad exacta, pago seguro y confirmaciones.</p>
     </div>
     <div class="role-block">
       <h4>SDLC - Administrador</h4>
-      <p>Se identifican los requerimientos del sistema: gestión de habitaciones, control de tarifas, reportes administrativos, integración con métodos de pago y políticas de seguridad.</p>
-      <span>Objetivo: tener una visión clara de la infraestructura necesaria.</span>
+      <p>Identifica requerimientos de gestión: control de habitaciones, tarifas, reportes y seguridad de datos.</p>
     </div>
     <div class="role-block">
       <h4>SDLC - Empleados</h4>
-      <p>Se determinan los procesos internos: check-in/check-out, servicio de habitaciones, atención a clientes y registro de incidencias.</p>
-      <span>Objetivo: mapear todos los procesos operativos que el sistema debe soportar.</span>
+      <p>Determina procesos internos: check-in/check-out, servicio al cliente e incidencias.</p>
     </div>
     <div class="role-block">
       <h4>STLC</h4>
-      <p>Se definen los casos de prueba: pruebas de reserva de habitaciones, flujos de pago, cancelaciones, generación de reportes, notificaciones al cliente y procesos internos.</p>
-      <span>Objetivo: garantizar que todas las funcionalidades puedan ser verificadas antes del desarrollo.</span>
+      <p>Se definen casos de prueba: flujos de reserva, pagos, cancelaciones y reportes.</p>
     </div>
   </div>
 </section>
 
-<!-- Diseño -->
 <section class="phase-section" id="phase3">
   <div class="phase-card">
     <h3>Diseño</h3>
     <div class="role-block">
       <h4>SDLC - Cliente</h4>
-      <p>Se diseña la interfaz: formularios claros, calendario de reservas interactivo, confirmaciones visuales y accesibles desde cualquier dispositivo.</p>
-      <span>Objetivo: experiencia de usuario sencilla y rápida.</span>
+      <p>Interfaz clara y accesible: calendario de reservas, confirmaciones visuales, responsive.</p>
     </div>
     <div class="role-block">
       <h4>SDLC - Administrador</h4>
-      <p>Se define la arquitectura del sistema: base de datos centralizada, panel de administración para control de habitaciones, tarifas, promociones y reportes.</p>
-      <span>Objetivo: estructura sólida y escalable.</span>
+      <p>Arquitectura del sistema: base de datos, panel de control, dashboards y reportes.</p>
     </div>
     <div class="role-block">
       <h4>SDLC - Empleados</h4>
-      <p>Se diseña un panel operativo: check-in/check-out eficiente, acceso a información de clientes, historial de reservas y servicios adicionales.</p>
-      <span>Objetivo: permitir al personal trabajar de manera ágil y sin errores.</span>
+      <p>Panel operativo: check-in/out, historial de reservas, servicios adicionales.</p>
     </div>
     <div class="role-block">
       <h4>STLC</h4>
-      <p>Se crean los planes de prueba basados en el diseño: pruebas de UI, funcionalidad y flujo de información entre cliente, administrador y empleados.</p>
-      <span>Objetivo: asegurar que el diseño cumple con los requerimientos y puede ser probado efectivamente.</span>
+      <p>Se crean planes de prueba: UI, flujo de información y validación de requerimientos.</p>
     </div>
   </div>
 </section>
 
-<!-- Desarrollo -->
 <section class="phase-section" id="phase4">
   <div class="phase-card">
     <h3>Desarrollo</h3>
     <div class="role-block">
       <h4>SDLC - Cliente</h4>
-      <p>Se implementan funcionalidades de reserva, pago, cancelación y notificaciones automáticas.</p>
+      <p>Implementación de funcionalidades: reservas, pagos, cancelaciones y notificaciones.</p>
     </div>
     <div class="role-block">
       <h4>SDLC - Administrador</h4>
-      <p>Se desarrollan módulos de control de habitaciones, tarifas, reportes, dashboards y ajustes administrativos.</p>
+      <p>Módulos de control: habitaciones, tarifas, reportes y panel administrativo.</p>
     </div>
     <div class="role-block">
       <h4>SDLC - Empleados</h4>
-      <p>Se construyen paneles internos: check-in/check-out, servicios al cliente y seguimiento de incidencias.</p>
+      <p>Paneles internos: check-in/out, seguimiento de clientes y registro de incidencias.</p>
     </div>
     <div class="role-block">
       <h4>STLC</h4>
-      <p>Se preparan entornos de prueba: base de datos simulada, escenarios de reserva, pago y cancelación para validar el desarrollo.</p>
-      <span>Objetivo: detectar errores antes de pruebas formales.</span>
+      <p>Preparación de entornos de prueba con escenarios simulados para verificar funcionalidades.</p>
     </div>
   </div>
 </section>
 
-<!-- Pruebas -->
 <section class="phase-section" id="phase5">
   <div class="phase-card">
     <h3>Pruebas</h3>
     <div class="role-block">
-      <h4>SDLC - Cliente</h4>
-      <p>Pruebas funcionales de la experiencia del usuario: reservas, pagos, confirmaciones y notificaciones correctas.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Administrador</h4>
-      <p>Pruebas de gestión: reportes, control de tarifas y habitaciones, integración con pagos y panel administrativo.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Empleados</h4>
-      <p>Pruebas operativas: check-in/check-out, seguimiento de clientes y manejo de incidencias.</p>
+      <h4>SDLC</h4>
+      <p>Pruebas funcionales, operativas y de aceptación por cliente, administrador y empleados.</p>
     </div>
     <div class="role-block">
       <h4>STLC</h4>
-      <p>Pruebas unitarias, integración, sistema completo y aceptación por rol, asegurando que cada flujo funcione correctamente.</p>
+      <p>Pruebas unitarias, integración, sistema completo y aceptación asegurando que todos los flujos funcionan.</p>
     </div>
   </div>
 </section>
 
-<!-- Implementación -->
 <section class="phase-section" id="phase6">
   <div class="phase-card">
     <h3>Implementación</h3>
     <div class="role-block">
-      <h4>SDLC - Cliente</h4>
-      <p>El cliente empieza a reservar habitaciones reales, recibe confirmaciones y notificaciones de pago.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Administrador</h4>
-      <p>Se despliega el sistema en producción, carga de datos reales y monitorización continua del sistema.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Empleados</h4>
-      <p>Se capacita al personal y se ajustan procesos según la experiencia real con clientes.</p>
+      <h4>SDLC</h4>
+      <p>Despliegue en producción: reservas reales, panel administrativo activo, capacitación del personal.</p>
     </div>
     <div class="role-block">
       <h4>STLC</h4>
-      <p>Pruebas finales de aceptación en producción para validar todo el sistema con datos reales.</p>
+      <p>Pruebas finales de aceptación en entorno real para garantizar funcionalidad y estabilidad.</p>
     </div>
   </div>
 </section>
 
-<!-- Mantenimiento -->
 <section class="phase-section" id="phase7">
   <div class="phase-card">
     <h3>Mantenimiento</h3>
     <div class="role-block">
-      <h4>SDLC - Cliente</h4>
-      <p>Recepción de soporte y mejoras continuas: nuevas funcionalidades, notificaciones, y resolución de problemas.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Administrador</h4>
-      <p>Actualización de tarifas, promociones y reportes; gestión de usuarios y ajustes de sistema según feedback.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Empleados</h4>
-      <p>Actualización de paneles internos y procesos, entrenamiento continuo según nuevas funcionalidades.</p>
+      <h4>SDLC</h4>
+      <p>Actualizaciones continuas, soporte, nuevas funcionalidades y optimización de procesos.</p>
     </div>
     <div class="role-block">
       <h4>STLC</h4>
-      <p>Pruebas de regresión y validación de nuevas funcionalidades, asegurando que el sistema siga funcionando correctamente.</p>
+      <p>Pruebas de regresión y validación de nuevas funciones, asegurando que todo el sistema siga funcionando correctamente.</p>
     </div>
   </div>
 </section>
