@@ -38,11 +38,13 @@
   /* Phases */
   .phase-section { min-height:100vh; display:flex; justify-content:center; align-items:flex-start; scroll-snap-align:start; padding:40px 20px; background:#f9f9f9; }
   .phase-card { width:90%; max-width:900px; background:#fff; border:2px solid #2e4d3b; border-radius:15px; display:flex; flex-direction:column; padding:30px; gap:20px; box-shadow:0 4px 15px rgba(46,77,59,0.1); }
-  .phase-card h3 { font-size:2rem; margin-bottom:15px; }
+  .phase-card h3 { font-size:2rem; margin-bottom:15px; cursor:pointer; }
   .role-block { border-top:1px solid #2e4d3b; padding-top:15px; margin-top:15px; }
   .role-block h4 { font-size:1.4rem; margin-bottom:8px; color:#1f3224; }
   .role-block p { font-size:1rem; color:#555; line-height:1.6; margin-bottom:8px; }
   .role-block span { font-size:0.9rem; color:#888; display:block; margin-bottom:5px; }
+
+  .toggle-content { display:none; }
 
   footer { padding:30px; text-align:center; background:#f9f9f9; color:#2e4d3b; border-top:2px solid #2e4d3b; }
 
@@ -73,7 +75,7 @@
 
 <div class="section-title">Fases del SDLC y STLC - Sistema de Reservas</div>
 
-<!-- Fases: Planificación a Mantenimiento -->
+<!-- Planificación -->
 <section class="phase-section" id="phase1">
   <div class="phase-card">
     <h3>Planificación</h3>
@@ -97,6 +99,7 @@
   </div>
 </section>
 
+<!-- Análisis -->
 <section class="phase-section" id="phase2">
   <div class="phase-card">
     <h3>Análisis</h3>
@@ -119,6 +122,7 @@
   </div>
 </section>
 
+<!-- Diseño -->
 <section class="phase-section" id="phase3">
   <div class="phase-card">
     <h3>Diseño</h3>
@@ -141,42 +145,66 @@
   </div>
 </section>
 
+<!-- Desarrollo (expandible) -->
 <section class="phase-section" id="phase4">
   <div class="phase-card">
-    <h3>Desarrollo</h3>
-    <div class="role-block">
-      <h4>SDLC - Cliente</h4>
-      <p>Implementación de funcionalidades: reservas, pagos, cancelaciones y notificaciones.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Administrador</h4>
-      <p>Módulos de control: habitaciones, tarifas, reportes y panel administrativo.</p>
-    </div>
-    <div class="role-block">
-      <h4>SDLC - Empleados</h4>
-      <p>Paneles internos: check-in/out, seguimiento de clientes y registro de incidencias.</p>
-    </div>
-    <div class="role-block">
-      <h4>STLC</h4>
-      <p>Preparación de entornos de prueba con escenarios simulados para verificar funcionalidades.</p>
+    <h3 class="toggle-title" onclick="toggleContent('dev-content')">Desarrollo</h3>
+    <div id="dev-content" class="toggle-content">
+      <div class="role-block">
+        <h4>SDLC - Cliente</h4>
+        <p>Implementación de funcionalidades clave: reservas online, pagos seguros, cancelaciones automáticas y notificaciones vía correo o SMS.</p>
+        <p>Integración con el calendario de disponibilidad de habitaciones y sistemas de pago del hotel.</p>
+        <p>Experiencia de usuario optimizada para diferentes dispositivos (móvil, tablet y escritorio).</p>
+        <p>Manejo de historial de reservas y preferencias del cliente para ofrecer recomendaciones personalizadas.</p>
+      </div>
+      <div class="role-block">
+        <h4>SDLC - Administrador</h4>
+        <p>Desarrollo de módulos de control para la gestión de habitaciones, tarifas, promociones y disponibilidad.</p>
+        <p>Generación de reportes detallados: ocupación diaria, ingresos por habitación, estadísticas de clientes.</p>
+        <p>Panel administrativo centralizado que permite monitorear todas las operaciones del hotel en tiempo real.</p>
+        <p>Gestión de usuarios y permisos, controlando el acceso de empleados a distintas funcionalidades.</p>
+      </div>
+      <div class="role-block">
+        <h4>SDLC - Empleados</h4>
+        <p>Desarrollo de paneles internos para check-in/check-out rápido, registro de incidencias y seguimiento de solicitudes de los clientes.</p>
+        <p>Herramientas de comunicación interna y coordinación con otros departamentos (limpieza, recepción, mantenimiento).</p>
+        <p>Monitoreo de servicios adicionales (restaurante, spa, actividades) y su relación con reservas de clientes.</p>
+      </div>
+      <div class="role-block">
+        <h4>STLC</h4>
+        <p>Preparación de entornos de prueba que simulan escenarios reales para cada tipo de usuario: cliente, administrador y empleados.</p>
+        <p>Validación de que todas las funcionalidades implementadas cumplan con los requisitos: reservas, pagos, cancelaciones y reportes.</p>
+        <p>Pruebas de integración de todos los módulos, asegurando que la información fluya correctamente entre cliente, administrador y empleados.</p>
+        <p>Verificación de seguridad y confiabilidad del sistema en condiciones de carga y uso concurrente.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Pruebas (expandible) -->
 <section class="phase-section" id="phase5">
   <div class="phase-card">
-    <h3>Pruebas</h3>
-    <div class="role-block">
-      <h4>SDLC</h4>
-      <p>Pruebas funcionales, operativas y de aceptación por cliente, administrador y empleados.</p>
-    </div>
-    <div class="role-block">
-      <h4>STLC</h4>
-      <p>Pruebas unitarias, integración, sistema completo y aceptación asegurando que todos los flujos funcionan.</p>
+    <h3 class="toggle-title" onclick="toggleContent('test-content')">Pruebas</h3>
+    <div id="test-content" class="toggle-content">
+      <div class="role-block">
+        <h4>SDLC</h4>
+        <p>Realización de pruebas funcionales, asegurando que cada módulo funcione según lo esperado.</p>
+        <p>Pruebas operativas en escenarios de uso diario del hotel, incluyendo múltiples reservas simultáneas, pagos y cancelaciones.</p>
+        <p>Pruebas de aceptación por los distintos actores: clientes revisando reservas, administradores verificando reportes y empleados ejecutando operaciones diarias.</p>
+        <p>Ajustes y mejoras basadas en retroalimentación directa de usuarios y pruebas de campo.</p>
+      </div>
+      <div class="role-block">
+        <h4>STLC</h4>
+        <p>Pruebas unitarias en cada módulo para detectar errores individuales en código y lógica.</p>
+        <p>Pruebas de integración para validar la interacción correcta entre módulos: reservas ↔ pagos ↔ panel administrativo.</p>
+        <p>Pruebas del sistema completo simulando flujos reales de operaciones en el hotel.</p>
+        <p>Pruebas de aceptación final que garanticen que todos los flujos y funcionalidades operen sin errores antes del despliegue en producción.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Implementación -->
 <section class="phase-section" id="phase6">
   <div class="phase-card">
     <h3>Implementación</h3>
@@ -191,6 +219,7 @@
   </div>
 </section>
 
+<!-- Mantenimiento -->
 <section class="phase-section" id="phase7">
   <div class="phase-card">
     <h3>Mantenimiento</h3>
@@ -208,6 +237,17 @@
 <footer>
   &copy; 2025 Hotel SDLC & STLC - Sistema de Reservas
 </footer>
+
+<script>
+  function toggleContent(id) {
+    const content = document.getElementById(id);
+    if(content.style.display === "none") {
+      content.style.display = "block";
+    } else {
+      content.style.display = "none";
+    }
+  }
+</script>
 
 </body>
 </html>
