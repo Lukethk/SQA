@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel SDLC - Landing Page Minimalista</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #2e4d3b; /* verde natural */
+      background-color: #fff;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top:0;
+      left:0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 0;
+      z-index: 100;
+      border-bottom: 2px solid #2e4d3b;
+    }
+    nav a {
+      color: #2e4d3b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #2e4d3b;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 90vh;
+      background: url("https://passporterapp.com/es/blog/wp-content/uploads/2023/07/santa-cruz-de-la-sierra-bolivia.jpg") no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: #2e4d3b;
+      animation: fadeInHero 1s ease-out;
+    }
+    .hero-content h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+    }
+
+    @keyframes fadeInHero {
+      from {opacity:0; transform: translateY(-20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+
+    /* Section SDLC */
+    .sdlc-section {
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f9f9f9;
+    }
+
+    .phase-card {
+      width: 90%;
+      max-width: 800px;
+      height: 80vh;
+      background: #fff;
+      border: 2px solid #2e4d3b;
+      border-radius: 15px;
+      margin: 40px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 30px;
+    }
+    .phase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(46,77,59,0.3);
+    }
+    .phase-card h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .phase-card p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      margin-bottom: 10px;
+    }
+    .sub-text {
+      font-size: 0.95rem;
+      color: #888;
+      max-width: 500px;
+      margin-top: 5px;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      display:none;
+      justify-content:center;
+      align-items:center;
+      background: rgba(0,0,0,0.3);
+      z-index: 200;
+    }
+    .modal-content {
+      background:#fff;
+      padding:25px;
+      border-radius:15px;
+      max-width:600px;
+      text-align:center;
+      border:2px solid #2e4d3b;
+      box-shadow: 0 8px 30px rgba(46,77,59,0.2);
+      animation: fadeIn 0.4s ease;
+      color:#2e4d3b;
+    }
+    .modal-content h2 { margin-bottom:15px; }
+    .modal-content p { margin-bottom:15px; line-height:1.5; color:#555; }
+    .close-btn {
+      background:#2e4d3b;
+      color:#fff;
+      padding:8px 18px;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+      border:none;
+    }
+    .close-btn:hover { background:#1f3224; }
+
+    @keyframes fadeIn {
+      from {opacity:0; transform: scale(0.95);}
+      to {opacity:1; transform: scale(1);}
+    }
+
+    /* Footer */
+    footer {
+      padding:30px;
+      text-align:center;
+      background:#f9f9f9;
+      color:#2e4d3b;
+      border-top:2px solid #2e4d3b;
+    }
+
+    @media(max-width: 900px){
+      .phase-card { height: 60vh; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#phase1">Planificación</a>
+    <a href="#phase2">Análisis</a>
+    <a href="#phase3">Diseño</a>
+    <a href="#phase4">Desarrollo</a>
+    <a href="#phase5">Pruebas</a>
+    <a href="#phase6">Implementación</a>
+    <a href="#phase7">Mantenimiento</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hotel SDLC & STLC</h1>
+      <p>Descubre cómo se relacionan las fases de desarrollo y pruebas en un sistema de reservas</p>
+    </div>
+  </section>
+
+  <section class="sdlc-section">
+    <div class="phase-card" id="phase1" data-phase="1">
+      <h3>Planificación</h3>
+      <p>🗂 Definición de alcance, recursos y cronograma del sistema de reservas.</p>
+      <span class="sub-text">Estableciendo la base sólida para todo el proyecto</span>
+    </div>
+    <div class="phase-card" id="phase2" data-phase="2">
+      <h3>Análisis</h3>
+      <p>🔍 Recopilación de requisitos: reservas online, disponibilidad de habitaciones.</p>
+      <span class="sub-text">Conociendo las necesidades de los usuarios y el hotel</span>
+    </div>
+    <div class="phase-card" id="phase3" data-phase="3">
+      <h3>Diseño</h3>
+      <p>📐 Arquitectura del sistema, interfaz de usuario y base de datos.</p>
+      <span class="sub-text">Visualizando cómo funcionará todo antes de construirlo</span>
+    </div>
+    <div class="phase-card" id="phase4" data-phase="4">
+      <h3>Desarrollo</h3>
+      <p>💻 Codificación de módulos: reservas, pagos y gestión de clientes.</p>
+      <span class="sub-text">Construyendo el sistema de forma ordenada y eficiente</span>
+    </div>
+    <div class="phase-card" id="phase5" data-phase="5">
+      <h3>Pruebas</h3>
+      <p>✅ Verificación de funcionalidades y reporte de errores.</p>
+      <span class="sub-text">Asegurando que todo funcione correctamente</span>
+    </div>
+    <div class="phase-card" id="phase6" data-phase="6">
+      <h3>Implementación</h3>
+      <p>🚀 Despliegue en producción y capacitación del personal.</p>
+      <span class="sub-text">Llevando el sistema a la vida real con éxito</span>
+    </div>
+    <div class="phase-card" id="phase7" data-phase="7">
+      <h3>Mantenimiento</h3>
+      <p>🛠 Soporte, actualización de funcionalidades y corrección de errores.</p>
+      <span class="sub-text">Manteniendo el sistema actualizado y estable</span>
+    </div>
+  </section>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+      <p id="modal-stlc"></p>
+      <button class="close-btn" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Hotel SDLC & STLC - Sistema de Reservas
+  </footer>
+
+  <script>
+    const data = {
+      1: {title:"Planificación", desc:"Definición de alcance, recursos y cronograma del sistema de reservas.", stlc:"Planificación de la estrategia general de pruebas."},
+      2: {title:"Análisis", desc:"Recopilación de requisitos: reservas online, disponibilidad de habitaciones.", stlc:"Planificación de pruebas para cada requisito."},
+      3: {title:"Diseño", desc:"Arquitectura del sistema, interfaz de usuario y base de datos.", stlc:"Diseño de casos de prueba."},
+      4: {title:"Desarrollo", desc:"Codificación de módulos: reservas, pagos y gestión de clientes.", stlc:"Preparación de datos y entornos de prueba."},
+      5: {title:"Pruebas", desc:"Verificación de funcionalidades y reporte de errores.", stlc:"Ejecución de pruebas y regresión."},
+      6: {title:"Implementación", desc:"Despliegue en producción y capacitación del personal.", stlc:"Pruebas de aceptación en producción."},
+      7: {title:"Mantenimiento", desc:"Soporte, actualización de funcionalidades y corrección de errores.", stlc:"Pruebas de regresión tras cambios."}
+    };
+
+    const cards = document.querySelectorAll(".phase-card");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalStlc = document.getElementById("modal-stlc");
+
+    cards.forEach(card => {
+      card.addEventListener("click", ()=> {
+        const phase = card.dataset.phase;
+        modalTitle.textContent = data[phase].title;
+        modalDesc.textContent = data[phase].desc;
+        modalStlc.textContent = "Relación con STLC: " + data[phase].stlc;
+        modal.style.display = "flex";
+      });
+    });
+
+    function closeModal() { modal.style.display = "none"; }
+    window.onclick = function(e) { if(e.target==modal){ modal.style.display="none"; } }
+  </script>
+
+</body>
+</html>
